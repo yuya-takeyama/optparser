@@ -4,17 +4,18 @@ class OptParser_Rule
     /**
      * @var string
      */
-    private $shortName;
+    private $longName;
+
 
     /**
      * @var string
      */
-    private $longName;
+    private $shortName;
 
-    public function __construct($short, $long = NULL, $description = NULL, $callback = NULL)
+    public function __construct($long, $short = NULL, $description = NULL, $callback = NULL)
     {
-        $this->shortName = $short;
         $this->longName  = $long;
+        $this->shortName = $short;
     }
 
     public function getDefault()
@@ -22,13 +23,13 @@ class OptParser_Rule
         return true;
     }
 
-    public function getShortName()
-    {
-        return $this->shortName;
-    }
-
     public function getLongName()
     {
         return $this->longName;
+    }
+
+    public function getShortName()
+    {
+        return $this->shortName;
     }
 }
