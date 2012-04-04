@@ -18,4 +18,13 @@ class OptParser_Tests_RuleTest extends PHPUnit_Framework_TestCase
         $rule = new OptParser_Rule('abcde', 'a');
         $this->assertEquals('abcde', $rule->getLongName());
     }
+
+    /**
+     * @test
+     */
+    public function getMode_should_be_VALUE_NONE_by_default()
+    {
+        $rule = new OptParser_Rule('abcde');
+        $this->assertEquals(OptParser_Rule::VALUE_NONE, $rule->getMode());
+    }
 }
