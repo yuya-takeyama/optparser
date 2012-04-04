@@ -24,10 +24,13 @@ class OptParser_RuleSet
      */
     public function get($name)
     {
-        if (array_key_exists($name, $this->shortRules)) {
-            return $this->shortRules[$name];
-        } else {
-            return NULL;
+        if (preg_match('/^-([a-zA-Z0-9])$/u', $name, $matches)) {
+            $name = $matches[1];
+            if (array_key_exists($name, $this->shortRules)) {
+                return $this->shortRules[$name];
+            } else {
+                return NULL;
+            }
         }
     }
 }

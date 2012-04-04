@@ -18,7 +18,7 @@ class OptParser_Tests_RuleSetTest extends PHPUnit_Framework_TestCase
     {
         $rule = new OptParser_Rule('a');
         $this->ruleSet->add($rule);
-        $this->assertSame($rule, $this->ruleSet->get('a'));
+        $this->assertSame($rule, $this->ruleSet->get('-a'));
     }
 
     /**
@@ -26,6 +26,6 @@ class OptParser_Tests_RuleSetTest extends PHPUnit_Framework_TestCase
      */
     public function get_should_be_NULL_if_specified_name_no_existent()
     {
-        $this->assertNull($this->ruleSet->get('a'));
+        $this->assertNull($this->ruleSet->get('-a'));
     }
 }
