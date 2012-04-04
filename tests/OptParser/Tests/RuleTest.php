@@ -54,4 +54,23 @@ class OptParser_Tests_RuleTest extends PHPUnit_Framework_TestCase
         $rule = new OptParser_Rule('abcde', 'a', OptParser_Rule::VALUE_OPTIONAL, NULL, 'foo');
         $this->assertEquals('foo', $rule->getDefault());
     }
+
+    /**
+     * @test
+     */
+    public function getValue_should_be_the_default_value_by_default()
+    {
+        $rule = new OptParser_Rule('abcde', 'a', OptParser_Rule::VALUE_OPTIONAL, NULL, 'foo');
+        $this->assertEquals('foo', $rule->getValue());
+    }
+
+    /**
+     * @test
+     */
+    public function getValue_should_be_the_value_it_is_set()
+    {
+        $rule = new OptParser_Rule('abcde', 'a', OptParser_Rule::VALUE_OPTIONAL, NULL, 'foo');
+        $rule->setValue('bar');
+        $this->assertEquals('bar', $rule->getValue());
+    }
 }

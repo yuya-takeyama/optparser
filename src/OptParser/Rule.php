@@ -31,6 +31,16 @@ class OptParser_Rule
      */
     private $default;
 
+    /**
+     * @var mixed
+     */
+    private $value;
+
+    /**
+     * @var bool
+     */
+    private $isValueSet = false;
+
     public function __construct($long, $short = NULL, $mode = NULL, $description = '', $default = NULL)
     {
         if (is_null($mode)) {
@@ -72,5 +82,16 @@ class OptParser_Rule
     public function getDefault()
     {
         return $this->default;
+    }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+        $this->isValueSet = true;
+    }
+
+    public function getValue()
+    {
+        return $this->isValueSet ? $this->value : $this->getDefault();
     }
 }
